@@ -5,7 +5,7 @@ const path = require("path");
 // unique id package
 const uuid = require("uuid");
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname,"public")));
@@ -31,4 +31,4 @@ app.get("/notes", function (req, res) {
 });
 app.listen(PORT, () => {
     console.log(`listening on: http://localhost:${PORT}`);
-})
+});
